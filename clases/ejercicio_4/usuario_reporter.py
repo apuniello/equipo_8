@@ -1,5 +1,15 @@
 from usuario import Usuario
 
+def validaReporter(func):
+    def wrapper(x):
+        if x == 'reporter':
+            return True
+        else:
+            print("No puedes hacer esto")
+            return False
+    return wrapper
+
+@validaReporter  
 class Reporter(Usuario):
     def __init__(self,email, nombre, apellido, password,sistema):
         Usuario.__init__(self, email, nombre, apellido, password, sistema)
